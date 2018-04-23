@@ -7,6 +7,7 @@ class IndecisionApp extends React.Component {
     constructor(props) {
         super(props);
         this.handleDeleteOptions = this.handleDeleteOptions.bind(this);
+        this.handlePick = this.handlePick.bind(this);
         this.state = {
             options: ['Thing one', 'Thing two', 'Thing four']
         };
@@ -21,6 +22,14 @@ class IndecisionApp extends React.Component {
         });
     }
 
+
+    //handle pick
+    handlePick() {
+        const randomNumber = Math.floor(Math.random() * this.state.options.length);
+        const option = this.state.options[randomNumber];
+        alert(option);
+    }
+
     render() {
 
         const title = 'Indecision';
@@ -29,7 +38,7 @@ class IndecisionApp extends React.Component {
         return(
             <div>
                 <Header title={title} subtitle={subtitle}/>
-                <Action hasOptions={this.state.options.length > 0}/>
+                <Action hasOptions={this.state.options.length > 0} handlePick={this.handlePick}/>
                 <Options 
                     options={this.state.options}
                     handleDeleteOptions={this.handleDeleteOptions}
@@ -59,15 +68,12 @@ class Header extends React.Component {
 
 class Action extends React.Component {
 
-    handlePick(){
-        alert('handlePick clicked');
-    }
 
     render() {
         return(
             <div>
                 <button 
-                onClick={this.handlePick}
+                onClick={this.props.handlePick}
                 disabled={!this.props.hasOptions}
                 >
                     What should I do? 

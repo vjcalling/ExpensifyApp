@@ -12,6 +12,7 @@ class IndecisionApp extends React.Component {
         };
     }
 
+    //handle delete options using state
     handleDeleteOptions() {
         this.setState(() => {
             return {

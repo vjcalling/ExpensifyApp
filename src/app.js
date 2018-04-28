@@ -70,7 +70,7 @@ class IndecisionApp extends React.Component {
 
 //------------------------------------------
 
-
+//will be changed to function component
 class Header extends React.Component {
 
     render() {

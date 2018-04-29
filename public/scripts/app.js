@@ -23,7 +23,7 @@ var IndecisionApp = function (_React$Component) {
         _this.handleAddOption = _this.handleAddOption.bind(_this);
 
         _this.state = {
-            options: []
+            options: props.options
         };
         return _this;
     }
@@ -37,9 +37,7 @@ var IndecisionApp = function (_React$Component) {
         key: 'handleDeleteOptions',
         value: function handleDeleteOptions() {
             this.setState(function () {
-                return {
-                    options: []
-                };
+                return { options: [] };
             });
         }
 
@@ -94,6 +92,11 @@ var IndecisionApp = function (_React$Component) {
 
     return IndecisionApp;
 }(React.Component);
+//-----------------------------------------------------------------------------
+
+IndecisionApp.defaultProps = {
+    options: []
+};
 
 //------------------------------------------
 

@@ -60,9 +60,7 @@ var IndecisionApp = function (_React$Component) {
                 return 'This item already exists';
             } else {
                 this.setState(function (prevState) {
-                    return {
-                        options: prevState.options.concat([option])
-                    };
+                    return { options: prevState.options.concat([option]) };
                 });
             }
         }
@@ -189,9 +187,7 @@ var AddOption = function (_React$Component2) {
             e.target.elements.option.value = '';
 
             this.setState(function () {
-                return {
-                    error: error
-                };
+                return { error: error };
             });
         }
     }, {

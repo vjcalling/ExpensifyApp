@@ -6,17 +6,9 @@ import Options from './Options';
 
 class IndecisionApp extends React.Component {
 
-    constructor(props) {
-        super(props);
-        this.handleDeleteOptions = this.handleDeleteOptions.bind(this);
-        this.handlePick = this.handlePick.bind(this);
-        this.handleAddOption = this.handleAddOption.bind(this);
-        this.handleDeleteOption = this.handleDeleteOption.bind(this);
-
-        this.state = {
-            options: props.options
-        };
-    }
+    state = {
+        options: []
+    };
 
 //-----------------------------------------------------------------------------
 
@@ -51,24 +43,24 @@ class IndecisionApp extends React.Component {
 //-----------------------------------------------------------------------------
 
     //handle delete options using state
-    handleDeleteOptions() {
+    handleDeleteOptions = () => {
         this.setState(() => ({options: []}));
-    }
+    };
 
-    handleDeleteOption(optionToRemove) {
+    handleDeleteOption = (optionToRemove) => {
         this.setState((prevState) => ({
             options: prevState.options.filter((option) =>  optionToRemove !== option)
         }));
-    }
+    };
 
     //handle pick
-    handlePick() {
+    handlePick = () => {
         const randomNumber = Math.floor(Math.random() * this.state.options.length);
         const option = this.state.options[randomNumber];
         alert(option);
-    }
+    };
 
-    handleAddOption(option) {
+    handleAddOption = (option) => {
 
         if(!option) {
             return 'Enter valid value for item';
@@ -77,7 +69,7 @@ class IndecisionApp extends React.Component {
         }else {
             this.setState((prevState) => ({options: prevState.options.concat([option])}));
         }
-    }
+    };
 
 //-----------------------------------------------------------------------------
     render() {

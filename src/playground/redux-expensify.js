@@ -106,4 +106,4 @@ const user = {
     age: 30
 }
 
-console.log(({...user}));
+console.log(({...user, 'location': 'Bangalore'}));
